@@ -20,7 +20,12 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/preview/{movie}', [\App\Http\Controllers\HomeController::class, 'preview'])->name('preview');
 Route::get('/test', function ()
 {
    return view('auth.registertest');
 });
+Route::resource('theater',\App\Http\Controllers\TheaterController::class);
+Route::resource('movie', \App\Http\Controllers\MovieController::class);
+Route::get('/admin', [\App\Http\Controllers\AdminController::class, 'index']);
+Route::get('/getTime/{name}', [\App\Http\Controllers\TheaterController::class, 'getTime']);
