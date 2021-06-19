@@ -42,7 +42,7 @@
                     <select class="form-control" name="theater" id="moviename" required>
                         <option selected>Choose</option>
                         @foreach($theaters as $th)
-                            <option value="{{$th->name}}">{{ $th->name }}</option>
+                            <option value="{{$th->id}}">{{ $th->name }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -50,7 +50,14 @@
                 <div id="sched" class="mb-3">
 
                 </div>
-
+                <div class="mb-3">
+                    <label for="start" class="form-label">Start show</label>
+                    <input type="text" name="start" class="form-control" id="start" aria-describedby="emailHelp" required>
+                </div>
+                <div class="mb-3">
+                    <label for="end" class="form-label">End show</label>
+                    <input type="text" name="end" class="form-control" id="end" aria-describedby="emailHelp" required>
+                </div>
                 <button class="btn btn-primary" type="submit">Create</button>
             </form>
         </div>
@@ -58,6 +65,8 @@
     <script>
         $(function()
         {
+            $('#start').datepicker()
+            $('#end').datepicker()
             $('#moviename').on('change', function (event)
             {
                 $('#sched').empty()

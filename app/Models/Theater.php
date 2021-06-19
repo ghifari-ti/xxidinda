@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Theater extends Model
 {
     use HasFactory;
+
+    public function ticket()
+    {
+        return $this->hasMany(Ticket::class);
+    }
+
+    public function movie()
+    {
+        return $this->hasMany(Movie::class);
+    }
+
 }

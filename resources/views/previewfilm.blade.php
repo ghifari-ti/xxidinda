@@ -8,6 +8,11 @@
             <div class="row">
                 <div class="col-3">
                     <img src="{{ url('/image/'.$movie->banner) }}" style="width: 100%;">
+                    @auth
+                            <a href="{{ url('/ticket/'.$movie->id) }}" class="btn btn-info w-100 mt-3">
+                                Beli tiket
+                            </a>
+                    @endauth
                 </div>
                 <div class="col">
                     <p><span class="font-weight-bold">Nama film:</span> {{ $movie->movie_title }} <br>
@@ -18,7 +23,7 @@
                     </p>
                     <hr>
                     <p>
-                        <span class="font-weight-bold">Theater:</span> {{ $movie->theater }} <br>
+                        <span class="font-weight-bold">Theater:</span> {{ $movie->theater->name }} <br>
                         <span class="font-weight-bold">Harga:</span> Rp.{{ number_format($movie->harga) }} <br>
                         <span class="font-weight-bold">Jadwal hari ini:</span> <br>
                         @if($movie->jadwal)

@@ -14,7 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $movies = \App\Models\Movie::all();
+    return view('welcome', compact('movies'));
 });
 
 Auth::routes();
@@ -28,4 +29,8 @@ Route::get('/test', function ()
 Route::resource('theater',\App\Http\Controllers\TheaterController::class);
 Route::resource('movie', \App\Http\Controllers\MovieController::class);
 Route::get('/admin', [\App\Http\Controllers\AdminController::class, 'index']);
-Route::get('/getTime/{name}', [\App\Http\Controllers\TheaterController::class, 'getTime']);
+Route::get('/getTime/{id}', [\App\Http\Controllers\TheaterController::class, 'getTime']);
+Route::get('/ticket/{movie}', [\App\Http\Controllers\TicketController::class, 'index']);
+Route::post('/ticket/save', [\App\Http\Controllers\TicketController::class, 'store']);
+Route::get('/getTicket/{id}/{time}', [\App\Http\Controllers\TicketController::class, 'getTicket']);
+Route::get('/myTicket', [\App\Http\Controllers\TicketController::class, 'myTicket']);

@@ -21,9 +21,13 @@ class CreateMoviesTable extends Migration
             $table->longText('deskripsi');
             $table->string('durasi');
             $table->string('sutradara');
-            $table->string('theater');
+            $table->unsignedBigInteger('theater_id');
+            $table->foreign('theater_id')->references('id')->on('theaters');
             $table->longText('jadwal');
             $table->integer('harga');
+            $table->dateTime('start');
+            $table->dateTime('end');
+            $table->string('status');
             $table->timestamps();
         });
     }

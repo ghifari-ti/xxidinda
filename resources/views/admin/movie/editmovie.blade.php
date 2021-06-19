@@ -41,10 +41,10 @@
                 <div class="form-group">
                     <label for="exampleFormControlSelect1">Theater</label>
                     <select class="form-control" name="theater" id="moviename" required>
-                        <option value="{{ $movie->theater }}" selected>{{ $movie->theater }}</option>
+                        <option value="{{ $movie->theater->id }}" selected>{{ $movie->theater->name }}</option>
 
                         @foreach($theaters as $th)
-                            <option value="{{$th->name}}">{{ $th->name }}</option>
+                            <option value="{{$th->id}}">{{ $th->name }}</option>
                         @endforeach
                     </select>
                 </div>

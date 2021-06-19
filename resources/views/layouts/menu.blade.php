@@ -24,5 +24,10 @@
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Home</span></a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ url('/myTicket') }}">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>My Ticket</span></a>
+    </li>
 @endif
 

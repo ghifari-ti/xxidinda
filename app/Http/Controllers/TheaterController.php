@@ -24,9 +24,9 @@ class TheaterController extends Controller
         return view('admin.theater.indextheater', compact('theaters'));
     }
 
-    public function getTime($name)
+    public function getTime($id)
     {
-        $theater = Theater::where('name', $name)->first();
+        $theater = Theater::find($id);
         if($theater)
         {
             $schedule = explode(',', $theater->jadwal);
@@ -34,7 +34,7 @@ class TheaterController extends Controller
             {
                 $times = array();
                 foreach ($schedule as $sch) {
-                    if(count(Movie::where('theater', $name)->where('jadwal', 'like', '%'.$sch.'%')->get()) == 0)
+                    if(count(Movie::where('theater_id', $id)->where('jadwal', 'like', '%'.$sch.'%')->get()) == 0)
                     {
                         array_push($times, $sch);
                     }

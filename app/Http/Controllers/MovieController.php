@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Movie;
 use App\Models\Theater;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class MovieController extends Controller
@@ -53,7 +54,7 @@ class MovieController extends Controller
         $movie->deskripsi = $request->deskripsi;
         $movie->durasi = $request->durasi;
         $movie->sutradara = $request->sutradara;
-        $movie->theater = $request->theater;
+        $movie->theater_id = $request->theater;
         if($request->jadwal)
         {
             $movie->jadwal = implode(',',$request->jadwal);
@@ -61,6 +62,9 @@ class MovieController extends Controller
             $movie->jadwal = '';
         }
         $movie->harga = $request->harga;
+        $movie->start = Carbon::createFromFormat('m/d/Y', $request->start);
+        $movie->end = Carbon::createFromFormat('m/d/Y', $request->end);
+        $movie->status = 'active';
         $movie->save();
         return redirect()->back()->with(['success' => 'Theater created successfuly.']);
 
@@ -111,7 +115,7 @@ class MovieController extends Controller
         $movie->deskripsi = $request->deskripsi;
         $movie->durasi = $request->durasi;
         $movie->sutradara = $request->sutradara;
-        $movie->theater = $request->theater;
+        $movie->theater_id = $request->theater;
         if($request->jadwal)
         {
             $movie->jadwal = implode(',',$request->jadwal);
