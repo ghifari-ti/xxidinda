@@ -29,7 +29,7 @@
                         $now = \Carbon\Carbon::now();
                     @endphp
 
-                    @if($now->greaterThanOrEqualTo(\Carbon\Carbon::make($mv->start)) && $now->lessThanOrEqualTo(\Carbon\Carbon::make($mv->end)))
+                    @if($now->lessThanOrEqualTo(\Carbon\Carbon::make($mv->end)))
                         <tr>
                             <th scope="row">{{ $loop->index + 1 }}</th>
                             <td><img src="{{ url('/image/'.$mv->banner )}}" style="height: 50px;"> </td>

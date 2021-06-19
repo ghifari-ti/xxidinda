@@ -123,6 +123,8 @@ class MovieController extends Controller
             $movie->jadwal = '';
         }
         $movie->harga = $request->harga;
+        $movie->start = Carbon::createFromFormat('m/d/Y', $request->start);
+        $movie->end = Carbon::createFromFormat('m/d/Y', $request->end);
         $movie->save();
         return redirect()->back()->with(['success' => 'Theater created successfuly.']);
 

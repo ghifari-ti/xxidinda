@@ -19,4 +19,9 @@ class Ticket extends Model
         return $this->belongsTo(Theater::class);
     }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
 }

@@ -52,4 +52,10 @@ class TicketController extends Controller
         $ticket = Auth::user()->ticket()->get();
         return view('ticket.myticket', compact('ticket'));
     }
+
+    public function allTicket()
+    {
+        $tickets = Ticket::paginate(20);
+        return view('admin.indexticket', compact('tickets'));
+    }
 }

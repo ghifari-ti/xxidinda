@@ -17,6 +17,11 @@
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Movie</span></a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ url('/allTicket') }}">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>All Ticket</span></a>
+    </li>
 @else
     <!-- Nav Item - Dashboard -->
     <li class="nav-item">

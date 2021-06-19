@@ -34,3 +34,4 @@ Route::get('/ticket/{movie}', [\App\Http\Controllers\TicketController::class, 'i
 Route::post('/ticket/save', [\App\Http\Controllers\TicketController::class, 'store']);
 Route::get('/getTicket/{id}/{time}', [\App\Http\Controllers\TicketController::class, 'getTicket']);
 Route::get('/myTicket', [\App\Http\Controllers\TicketController::class, 'myTicket']);
+Route::get('/allTicket', [\App\Http\Controllers\TicketController::class, 'allTicket']);

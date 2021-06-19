@@ -62,6 +62,14 @@
                         @endforeach
                     @endif
                 </div>
+                <div class="mb-3">
+                    <label for="start" class="form-label">Start show</label>
+                    <input type="text" name="start" value="{{ \Carbon\Carbon::make($movie->start)->format('m/d/Y') }}" class="form-control" id="start" aria-describedby="emailHelp" required>
+                </div>
+                <div class="mb-3">
+                    <label for="end" class="form-label">End show</label>
+                    <input type="text" name="end" value="{{ \Carbon\Carbon::make($movie->end)->format('m/d/Y') }}" class="form-control" id="end" aria-describedby="emailHelp" required>
+                </div>
 
                 <button class="btn btn-primary" type="submit">Update</button>
             </form>
@@ -70,6 +78,8 @@
     <script>
         $(function()
         {
+            $('#start').datepicker()
+            $('#end').datepicker()
             $('#moviename').on('change', function (event)
             {
                 $('#sched').empty()
