@@ -35,3 +35,7 @@ Route::post('/ticket/save', [\App\Http\Controllers\TicketController::class, 'sto
 Route::get('/getTicket/{id}/{time}', [\App\Http\Controllers\TicketController::class, 'getTicket']);
 Route::get('/myTicket', [\App\Http\Controllers\TicketController::class, 'myTicket']);
 Route::get('/allTicket', [\App\Http\Controllers\TicketController::class, 'allTicket']);
+Route::get('/allUser', [\App\Http\Controllers\UserController::class, 'index']);
+Route::get('/user/edit/{id}', [\App\Http\Controllers\UserController::class, 'edit']);
+Route::post('/user/update/{id}', [\App\Http\Controllers\UserController::class, 'update']);
+Route::delete('/user/delete/{id}', [\App\Http\Controllers\UserController::class, 'delete']);

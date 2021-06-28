@@ -19,11 +19,11 @@ class CreateTicketsTable extends Migration
             $table->string('jadwal');
             $table->dateTime('tanggal');
             $table->unsignedBigInteger('movie_id');
-            $table->foreign('movie_id')->references('id')->on('movies');
+            $table->foreign('movie_id')->references('id')->on('movies')->cascadeOnDelete();
             $table->unsignedBigInteger('theater_id');
-            $table->foreign('theater_id')->references('id')->on('theaters');
+            $table->foreign('theater_id')->references('id')->on('theaters')->cascadeOnDelete();
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
             $table->timestamps();
         });
     }

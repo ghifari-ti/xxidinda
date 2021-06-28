@@ -22,6 +22,11 @@
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>All Ticket</span></a>
     </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ url('/allUser') }}">
+            <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>All User</span></a>
+    </li>
 @else
     <!-- Nav Item - Dashboard -->
     <li class="nav-item">

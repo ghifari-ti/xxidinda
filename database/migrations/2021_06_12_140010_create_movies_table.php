@@ -22,7 +22,7 @@ class CreateMoviesTable extends Migration
             $table->string('durasi');
             $table->string('sutradara');
             $table->unsignedBigInteger('theater_id');
-            $table->foreign('theater_id')->references('id')->on('theaters');
+            $table->foreign('theater_id')->references('id')->on('theaters')->cascadeOnDelete();
             $table->longText('jadwal');
             $table->integer('harga');
             $table->dateTime('start');
